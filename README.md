@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+# Pokedex React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicação desenvolvida em React Native utilizando Expo que consome dados da PokeAPI.
 
-## Get started
+## 🚀 Tecnologias utilizadas
 
-1. Install dependencies
+- React Native
+- Expo
+- Expo Router
+- Firebase
+- PokeAPI
+- Vercel (Deploy)
 
-   ```bash
-   npm install
-   ```
+## 🌐 Aplicação online
 
-2. Start the app
+Acesse a aplicação:
 
-   ```bash
-   npx expo start
-   ```
+https://pokedexreactnative.vercel.app/
 
-In the output, you'll find options to open the app in a
+## 🔗 API utilizada
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+https://pokeapi.co/
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🔥 Funcionalidades
 
-## Get a fresh project
+- Listagem de Pokémons
+- Pesquisa de Pokémon
+- Página de detalhes do Pokémon
+- Favoritar Pokémon (Firebase)
+- Rotas dinâmicas
 
-When you're ready, run:
+## 🏗 Arquitetura da aplicação
 
-```bash
-npm run reset-project
-```
+App React Native (Expo)
+↓
+Consome dados da PokeAPI
+↓
+Salva favoritos no Firebase
+↓
+Deploy no Vercel
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📸 Screenshots
 
-## Learn more
+### Tela inicial
 
-To learn more about developing your project with Expo, look at the following resources:
+<img width="1913" height="892" alt="image" src="https://github.com/user-attachments/assets/af7abad4-a3b2-488b-a845-6f90fade9932" />
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Tela de detalhes do Pokémon
 
-## Join the community
+<img width="1881" height="874" alt="image" src="https://github.com/user-attachments/assets/f4fc692c-ce02-453f-93fb-1f6ae8005e02" />
 
-Join our community of developers creating universal apps.
+### Barra de pesquisa
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+<img width="1877" height="489" alt="image" src="https://github.com/user-attachments/assets/3fb7b0e5-5cac-41a4-bfe4-98eac41c727a" />
+
+## Autor
+
+Projeto desenvolvido como atividade acadêmica utilizando React Native, consumo de API e integração com Firebase.
+
+
+## Instalação do projeto
+
+Clone o repositório:
+
+
+
+Entre na pasta do projeto:
+cd pokedex-react-native
+
+
+Instale as dependências:
+npm install
+
+Execute o projeto:
+npx expo start

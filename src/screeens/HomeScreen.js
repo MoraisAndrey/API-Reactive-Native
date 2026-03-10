@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen() {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
@@ -16,13 +17,13 @@ export default function HomeScreen({ navigation }) {
         data={pokemon}
         keyExtractor={(item) => item.name}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Pokemon", { name: item.name })}
-          >
-            <Text style={{fontSize:20, margin:10}}>
-              {item.name}
-            </Text>
-          </TouchableOpacity>
+          <Link href={`/pokemon/${item.name}`} asChild>
+            <TouchableOpacity>
+              <Text style={{ fontSize: 20, margin: 10 }}>
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          </Link>
         )}
       />
     </View>

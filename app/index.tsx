@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { View, TextInput, FlatList, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TextInput, FlatList, Text, Image, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
 import { router } from "expo-router";
 
 export default function Home() {
 
   const [pokemons, setPokemons] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=50")
-      .then(res => res.json())
-      .then(data => {
-        setPokemons(data.results);
-      });
+    loadPokemons();
   }, []);
+
+  async function loadPokemons() {
+    try {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50");
+      const data = await response.json();
+      setPokemons(data.results);
+    } catch (error) {
+      console.log("Erro ao buscar pokemons:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const filtered = pokemons.filter(p =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (loading) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator size="large" />
+        <Text>Carregando Pokédex...</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -32,6 +50,7 @@ export default function Home() {
       <FlatList
         data={filtered}
         keyExtractor={(item) => item.name}
+        numColumns={2}
         renderItem={({ item }) => {
 
           const id = item.url.split("/")[6];
@@ -59,30 +78,48 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
-    padding: 20
+    padding: 20,
+    backgroundColor: "#f2f2f2"
   },
 
   search: {
     borderWidth: 1,
-    padding: 10,
+    borderColor: "#ddd",
+    padding: 12,
     borderRadius: 10,
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundColor: "white"
   },
 
   card: {
+    flex: 1,
     alignItems: "center",
-    marginBottom: 20
+    backgroundColor: "white",
+    margin: 10,
+    padding: 20,
+    borderRadius: 15,
+    elevation: 3
   },
 
   image: {
-    width: 100,
-    height: 100
+    width: 120,
+    height: 120
   },
 
   name: {
     fontSize: 18,
-    textTransform: "capitalize"
+    textTransform: "capitalize",
+    marginTop: 10,
+    fontWeight: "bold"
+  },
+
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   }
+
 });

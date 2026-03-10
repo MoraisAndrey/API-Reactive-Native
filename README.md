@@ -61,8 +61,7 @@ Projeto desenvolvido como atividade acadêmica utilizando React Native, consumo 
 ## Instalação do projeto
 
 Clone o repositório:
-
-
+https://github.com/MoraisAndrey/API-Reactive-Native
 
 Entre na pasta do projeto:
 cd pokedex-react-native
